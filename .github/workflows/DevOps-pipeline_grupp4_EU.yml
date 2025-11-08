@@ -1,6 +1,10 @@
 name: eriks weather pipeline
 
 on:
+    push:
+
+        branches:
+            - DevOps-pipeline_grupp4_EU
 
     workflow_dispatch:
 

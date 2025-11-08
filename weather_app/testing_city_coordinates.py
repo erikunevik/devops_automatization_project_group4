@@ -7,4 +7,4 @@ def testing_city_coordinates():
     assert städer["göteborg"]["latitude"], städer["göteborg"]["longitude"]  == ("57.70", "11.97")
     assert städer["malmö"]["latitude"], städer["malmö"]["longitude"]  == ("59.33", "11.07")
     
-
+    
