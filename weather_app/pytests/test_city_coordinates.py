@@ -1,3 +1,6 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from extract_data import städer
 
 # Pytest asserting that the coordinates for the three cities are correct
