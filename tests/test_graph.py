@@ -22,5 +22,5 @@ def test_graph_layout():
     
     assert result.layout.title.text == "Vädret för de kommande 24 timmarna"
     assert result.layout.xaxis.title.text == "Tid (hh:mm)"
-    assert result.layout.yaxis.title.text == "Temperatur (°C)"
+    assert result.layout.yaxis.title.text == "Temperatur (°C)" 
     
