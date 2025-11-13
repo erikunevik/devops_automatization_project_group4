@@ -27,6 +27,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Archive bundle
+      uses: actions/upload-artifact@v4
+      with:
+        name: bundle
+        path: build
+        if-no-files-found: error
+
       - name: Run unit test
         run:  pytest -q weather_app/pytests/test_city_coordinates.py
             
@@ -38,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: failed-test-log
-          path: logs
+          path: build
 
   building-docker-image:
     needs: testing
