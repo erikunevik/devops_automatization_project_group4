@@ -31,7 +31,7 @@ jobs:
         run:  pytest -q weather_app/pytests/test_city_coordinates.py
             
       - name: Run integration test
-        run: pytest -q weather_app/pytests/test_api_call.py; then
+        run: pytest -q weather_app/pytests/test_api_call.py
             
       - name: upload-error-artifact
         if: failure() && github.event.inputs.logg-error-generator == 'true'
