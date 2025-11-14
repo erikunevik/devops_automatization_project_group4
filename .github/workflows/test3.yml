@@ -30,25 +30,25 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run unit test false
-        if: ${{ github.event.inputs.logg-error-generator == 'false'
+        if: ${{ github.event.inputs.logg-error-generator == 'false' }}
         run:  pytest -q weather_app/pytests/test_city_coordinates.py
 
       - name: Run unit test true
-        if: ${{ github.event.inputs.logg-error-generator == 'true'
+        if: ${{ github.event.inputs.logg-error-generator == 'true' }}
         shell: bash
         run: pytest -q weather_app/pytests/test_city_coordinates.py > logs.txt
         
       - name: Run integration test false
-        if: ${{ github.event.inputs.logg-error-generator == 'false'
+        if: ${{ github.event.inputs.logg-error-generator == 'false' }}
         run: pytest -q weather_app/pytests/test_api_call.py
 
       - name: Run integration test true
-        if: ${{ github.event.inputs.logg-error-generator == 'true'
+        if: ${{ github.event.inputs.logg-error-generator == 'true' }}
         shell: bash
         run: pytest -q weather_app/pytests/test_api_call.py > logs.txt
         
       - name: upload-error-artifact
-        if: failure() && github.event.inputs.logg-error-generator == 'true'
+        if: ${{ failure() && github.event.inputs.logg-error-generator == 'true' }}
         uses: actions/upload-artifact@v4
         with:
             name: failed-test-log
